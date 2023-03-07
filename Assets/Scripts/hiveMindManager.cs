@@ -13,6 +13,8 @@ public class hiveMindManager : MonoBehaviour
 
     //how long till the next move
     public float moveDelay = 50.0f;
+    //so you don't move twice
+    public bool moved = false;
 
     //for building waves of aliens
     public int rows = 5;
@@ -62,6 +64,7 @@ public class hiveMindManager : MonoBehaviour
         if(moveTimer >= moveDelay){
             //transform.position = new Vector3(transform.position.x + moveVelocity, transform.position.y, transform.position.z);
             transform.Translate(moveVelocity, 0.0f, 0.0f);
+            moved = false;
 
             //resetting to continue
             moveTimer = 0;
@@ -86,7 +89,7 @@ public class hiveMindManager : MonoBehaviour
         }
 
         if(aliens == 0){
-            transform.position = new Vector3(-15.0f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-15.0f, transform.position.y + 5.0f, transform.position.z);
             WaveBuilder();
         }
     }
@@ -94,10 +97,14 @@ public class hiveMindManager : MonoBehaviour
     void SwitchVelocity()
     {   
         //Debug.Log("hive mind trigger");
-        moveVelocity = moveVelocity * -1;
 
-        //moving down
-        transform.Translate(0.0f, -0.4f, 0.0f);
+        if(!moved){
+            moved = true;
+            moveVelocity = moveVelocity * -1;
+            //moving down
+            transform.Translate(0.0f, -1.0f, 0.0f);
+        }
+
         //transform.position = new Vector3(transform.position.x, transform.position.y - 1.0f, transform.position.z);
 
     }
