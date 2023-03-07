@@ -5,6 +5,11 @@ using UnityEngine;
 public class shipController : MonoBehaviour
 {
     public GameObject bullet;
+
+    public int bulletDelay = 15;
+    private int bulletTracker = 0;
+
+
     public Transform shootingOffset;
 
 
@@ -21,6 +26,8 @@ public class shipController : MonoBehaviour
         newPosition.x = Mathf.Clamp(newPosition.x, leftLimit, rightLimit);
 
         transform.position = newPosition;
+
+        bulletTracker++;
     }
   
 
@@ -29,11 +36,12 @@ public class shipController : MonoBehaviour
     {
 
         //shooting
-        if (Input.GetKeyDown(KeyCode.Space)){
+        if (Input.GetKeyDown(KeyCode.Space) && bulletDelay < bulletTracker){
             GameObject shot = Instantiate(bullet, shootingOffset.position, Quaternion.identity);
-            Debug.Log("Bang!");
+            //Debug.Log("Bang!");
 
             Destroy(shot, 3f);
+            bulletTracker = 0;
         }
     }
 
