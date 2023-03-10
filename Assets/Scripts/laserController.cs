@@ -25,8 +25,9 @@ public class laserController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {   
         if(other.transform.name == "Ship"){
-            Destroy(other.gameObject);
             Destroy(myRigidbody2D.gameObject);
+            Animator shipAnimator = other.GetComponent<Animator>();
+            shipAnimator.SetTrigger("exploding");
             Debug.Log("Game Over");
         } else if(other.tag == "Wall"){
             Destroy(other.gameObject);

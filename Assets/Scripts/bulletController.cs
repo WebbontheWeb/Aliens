@@ -22,25 +22,28 @@ public class bulletController : MonoBehaviour
     private void Fire()
     {
         myRigidbody2D.velocity = Vector2.up * speed; 
-        Debug.Log("Wwweeeeee");
+        //Debug.Log("Wwweeeeee");
     }
 
     //deleting bullet on hit
     private void OnCollisionEnter2D(Collision2D other)
     {   
-        Destroy(other.gameObject);
-        Destroy(myRigidbody2D.gameObject);
+
 
         if(other.transform.name == "Alien 1(Clone)"){
-            Debug.Log("destroyed, 10");
+            //Debug.Log("destroyed, 10");
+            //other.gameObject.GetComponent<Animator>().SetTrigger("exploding");
             OnAlienDestroyed(10);
-            Debug.Log("after, 10");
+            //Debug.Log("after, 10");
 
         } else if(other.transform.name == "Alien 2(Clone)"){
             OnAlienDestroyed(20);
         } else if(other.transform.name == "Alien 3(Clone)"){
             OnAlienDestroyed(40);
         }
+
+        //Destroy(other.gameObject);
+        Destroy(myRigidbody2D.gameObject);
         
     }
 
