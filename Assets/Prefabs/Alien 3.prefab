@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 960097394410307721}
   m_Layer: 0
   m_Name: Alien 3
-  m_TagString: Untagged
+  m_TagString: Shooter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laser: {fileID: 2457785739244962049, guid: f974e09b0e17d454da1e1064485f803a, type: 3}
   score: 20
+  exploded: 0
 --- !u!50 &1836745072988517599
 Rigidbody2D:
   serializedVersion: 4

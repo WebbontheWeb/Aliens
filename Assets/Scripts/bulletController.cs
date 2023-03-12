@@ -28,8 +28,6 @@ public class bulletController : MonoBehaviour
     //deleting bullet on hit
     private void OnCollisionEnter2D(Collision2D other)
     {   
-
-
         if(other.transform.name == "Alien 1(Clone)"){
             //Debug.Log("destroyed, 10");
             //other.gameObject.GetComponent<Animator>().SetTrigger("exploding");
@@ -55,5 +53,6 @@ public class bulletController : MonoBehaviour
         }
 
 	}
+
 }
 

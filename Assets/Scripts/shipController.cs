@@ -20,14 +20,14 @@ public class shipController : MonoBehaviour
     private Rigidbody2D myRigidbody2D;
     private Animator shipAnimator;
 
-    //for destroying object
-    public bool exploded = false;
 
     // Start is called before the first frame update
     void Start()
     {   
         shipAnimator = GetComponent<Animator>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
+
+        laserController.OnPlayerDestroyed += StartExploding;
     }
 
     void FixedUpdate()
@@ -57,11 +57,16 @@ public class shipController : MonoBehaviour
             Destroy(shot, 3f);
             bulletTracker = 0;
         }
+    }
 
-        if(exploded == true){
-            Destroy(myRigidbody2D.gameObject);
-            Debug.Log("Player Exploding");
-        }  
+    void StartExploding(){
+        shipAnimator.SetTrigger("exploding");
+        //Debug.Log("Game Over");
+    }
+
+
+    public void DestroyShip(){
+        Destroy(myRigidbody2D.gameObject);
     }
 
     // private void OnCollisionEnter2D()

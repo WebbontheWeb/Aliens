@@ -7,6 +7,9 @@ public class laserController : MonoBehaviour
 {
     private Rigidbody2D myRigidbody2D;
 
+    public delegate void playerDestroyed(); //passing score of alien
+    public static event playerDestroyed OnPlayerDestroyed;
+
     public float speed = 5;
     // Start is called before the first frame update
     void Start()
@@ -25,10 +28,8 @@ public class laserController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {   
         if(other.transform.name == "Ship"){
+            OnPlayerDestroyed();
             Destroy(myRigidbody2D.gameObject);
-            Animator shipAnimator = other.GetComponent<Animator>();
-            shipAnimator.SetTrigger("exploding");
-            Debug.Log("Game Over");
         } else if(other.tag == "Wall"){
             Destroy(other.gameObject);
             Destroy(myRigidbody2D.gameObject);

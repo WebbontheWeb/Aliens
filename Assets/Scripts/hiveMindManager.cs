@@ -46,7 +46,6 @@ public class hiveMindManager : MonoBehaviour
             updateScore(0);
         }
         
-
         //setting aliens to the amount of aliens
         aliens = rows * columns;
         WaveBuilder();

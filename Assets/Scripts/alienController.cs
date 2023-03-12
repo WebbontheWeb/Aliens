@@ -19,10 +19,6 @@ public class alienController : MonoBehaviour
     private Animator alienAnimator;
     private Rigidbody2D myRigidbody2D;
 
-
-    //for destroying object
-    public bool exploded = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -31,28 +27,16 @@ public class alienController : MonoBehaviour
 
     }
 
-    void Update(){
-        if(exploded == true){
-            Destroy(myRigidbody2D.gameObject);
-            Debug.Log("exploding");
-        }  
-            
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {   
         //shooting at player
-        if(gameObject.name == "Alien 3(Clone)"){
+        if(gameObject.tag == "Shooter"){
             if(Random.Range(0, 1000) > 998.0f){
                 alienAnimator.SetTrigger("shooting");
                 Instantiate(laser, transform.position, Quaternion.identity);
             }
         }
-
-
-
- 
     }
     
     void OnTriggerEnter2D(Collider2D other) 
@@ -69,6 +53,11 @@ public class alienController : MonoBehaviour
     private void OnCollisionEnter2D()
     {   
         alienAnimator.SetTrigger("exploding");
+    }
+
+    //can be called by animation event
+    public void DestroyAlien(){
+        Destroy(myRigidbody2D.gameObject);
     }
 
 
