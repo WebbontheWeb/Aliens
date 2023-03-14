@@ -10,6 +10,8 @@ public class bulletController : MonoBehaviour
     public delegate void alienDestroyed(int score); //passing score of alien
     public static event alienDestroyed OnAlienDestroyed;
 
+    public GameObject explosion;
+
     public float speed = 5;
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,8 @@ public class bulletController : MonoBehaviour
         } else if(other.transform.name == "Alien 3(Clone)"){
             OnAlienDestroyed(40);
         }
+
+        Instantiate(explosion, transform.position, Quaternion.identity);
 
         //Destroy(other.gameObject);
         Destroy(myRigidbody2D.gameObject);

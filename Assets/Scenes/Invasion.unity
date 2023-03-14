@@ -1104,29 +1104,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship
       objectReference: {fileID: 0}
-    - target: {fileID: 4098147093890496187, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4098147093890496187, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4098147093890496187, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4447747329123161577, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4447747329123161577, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4447747329123161577, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4447747329123161577, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1168,10 +1148,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4860674434415813007, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -96324739, guid: 14aa5bd5af790ed4e8c970936a1a03f1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
 --- !u!1001 &8589759937376033768

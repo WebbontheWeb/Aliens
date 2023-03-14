@@ -5,11 +5,8 @@ using UnityEngine;
 public class shipController : MonoBehaviour
 {
     public GameObject bullet;
-
     public int bulletDelay = 15;
     private int bulletTracker = 0;
-
-
     public Transform shootingOffset;
 
     float horizonalAxis;
@@ -20,12 +17,17 @@ public class shipController : MonoBehaviour
     private Rigidbody2D myRigidbody2D;
     private Animator shipAnimator;
 
+    private AudioSource audioSource;
+    public AudioClip shooting;
+    public AudioClip exploding;
+
 
     // Start is called before the first frame update
     void Start()
     {   
         shipAnimator = GetComponent<Animator>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
 
         laserController.OnPlayerDestroyed += StartExploding;
     }
@@ -56,11 +58,16 @@ public class shipController : MonoBehaviour
 
             Destroy(shot, 3f);
             bulletTracker = 0;
+
+            audioSource.clip = shooting;
+            audioSource.Play();
         }
     }
 
     void StartExploding(){
         shipAnimator.SetTrigger("exploding");
+        audioSource.clip = exploding;
+        audioSource.Play();
         //Debug.Log("Game Over");
     }
 

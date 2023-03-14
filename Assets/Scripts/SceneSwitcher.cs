@@ -39,5 +39,8 @@ public class SceneSwitcher : MonoBehaviour
 
         //reloading main menu
         SceneManager.LoadScene(menuSceneName, LoadSceneMode.Single);
+        //so there aren't two
+        //it creates a new going back to the menu scene
+        Destroy(gameObject);
     }
 }

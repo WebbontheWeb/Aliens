@@ -19,12 +19,16 @@ public class alienController : MonoBehaviour
     private Animator alienAnimator;
     private Rigidbody2D myRigidbody2D;
 
+    private AudioSource audioSource;
+    public AudioClip shooting;
+    public AudioClip exploding;
+
     // Start is called before the first frame update
     void Start()
     {
         alienAnimator = GetComponent<Animator>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,6 +39,9 @@ public class alienController : MonoBehaviour
             if(Random.Range(0, 1000) > 998.0f){
                 alienAnimator.SetTrigger("shooting");
                 Instantiate(laser, transform.position, Quaternion.identity);
+
+                audioSource.clip = shooting;
+                audioSource.Play();
             }
         }
     }
@@ -53,6 +60,8 @@ public class alienController : MonoBehaviour
     private void OnCollisionEnter2D()
     {   
         alienAnimator.SetTrigger("exploding");
+        audioSource.clip = exploding;
+        audioSource.Play();
     }
 
     //can be called by animation event
